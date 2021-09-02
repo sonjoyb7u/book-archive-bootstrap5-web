@@ -1,11 +1,23 @@
 // Get Error Message Id ... ...
 const errorMsg = document.getElementById("error-msg");
 
+// Hide Spinner Function ... ...
+function showSpinner() {
+    document.getElementById('overlay').style.display = 'block';
+}
+// Hide Spinner Function ... ...
+function hideSpinner() {
+    document.getElementById('overlay').style.display = 'none';
+}
+hideSpinner() 
+// showSpinner() 
+
 // Get Input Book name text ... ...
 const searchBook = async () => {
     const searchField = document.getElementById('search-book-field');
     const searchText = searchField.value;
     if(searchText.length > 0) {
+        showSpinner(); 
         searchField.value = '';
         const url = `http://openlibrary.org/search.json?q=${searchText}`;
         // NEW PROCESS OF GET DATA
@@ -23,6 +35,7 @@ const searchBook = async () => {
                                 <strong>Search Field Is Empty!</strong> Please, Type Your Favorite Book Name & Try Again To Search...
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>`;
+        hideSpinner(); 
     }
 
 }
@@ -67,6 +80,7 @@ const displaySearchBooks = books => {
             `;
             
             displaySearchBooksContainer.appendChild(searchBookDiv);
+            hideSpinner();
         })
     }
     else {
@@ -75,6 +89,7 @@ const displaySearchBooks = books => {
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>`;
         searchTotalBooks.innerText = 0; 
+        hideSpinner()
     }
     
 }
