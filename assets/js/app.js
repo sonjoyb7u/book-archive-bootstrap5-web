@@ -1,3 +1,8 @@
+const SearchBooksSectionContainer  = document.getElementById('search-section');
+const searchTotalBooks  = document.getElementById('search-total-books');
+const displaySearchBooksContainer = document.getElementById('search-books-result');
+const coverImage = document.getElementById('cover-image');
+
 // Get Error Message Id ... ...
 const errorMsg = document.getElementById("error-msg");
 
@@ -32,6 +37,9 @@ const searchBook = async () => {
                                 <strong>Search Field Is Empty!</strong> Please, Type Your Favorite Book Name & Try Again To Search...
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>`;
+        searchTotalBooks.innerText = 0;
+        // displaySearchBooksContainer.innerHTML = ''; // Old Process
+        displaySearchBooksContainer.textContent = '';
         hideSpinner(); 
     }
 
@@ -40,10 +48,6 @@ const searchBook = async () => {
 // Set To Display All Searched Books Results ... ...
 const displaySearchBooks = books => {
     // console.log(books.numFound);
-    const SearchBooksSectionContainer  = document.getElementById('search-section');
-    const searchTotalBooks  = document.getElementById('search-total-books');
-    const displaySearchBooksContainer = document.getElementById('search-books-result');
-    const coverImage = document.getElementById('cover-image');
 
     // displaySearchBooksContainer.innerHTML = ''; // Old Process
     displaySearchBooksContainer.textContent = '';
