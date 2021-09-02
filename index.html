@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS API Assignment-6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Start Header Section  ... ... -->
+    <header class="container">
+        <section class="bg-dark bg-opacity-75 bg-gradient rounded-3 shadow">
+            <div class="w-100 mx-auto text-light p-4">
+                <h1 class="text-center"><u>: JS API Assignment-6 :</u></h1>
+                <h3 class="text-center">Search Your Favorite Book</h3>
+                <div class="input-group mt-3 mb-3 w-50 mx-auto">
+                    <input id="search-book-field" type="text" class="form-control mr-2" placeholder="Search Your Favorite Book">
+                    <button onclick="searchBook()" class="btn btn-primary" type="button" id="button-addon2">Search</button>
+                </div>
+            </div>
+        </section>
+        <!-- End Header Section  ... ... -->
+
+        <!-- Show Error Messages ... ... -->
+        <div id="error-msg" class="mt-2"></div>
+        
+    </header>
+
+    <main class="container">
+
+        <!-- Start Search Single Book Details  -->
+        <!-- <section class="mt-5">
+            <div id="single-book-detail" class="card mb-6 w-50 mx-auto border-0">
+            </div>
+        </section> -->
+        <!-- End Search Single Book Details  -->
+
+        <!-- Start Search All Books Result  -->
+        <section id="search-books-section">
+            <h2 class="text-muted mb-1 d-sm-inline-block">
+                Total Books Found:
+            </h2>
+            <span id="search-total-books" class="position-absolute translate-middle badge rounded-pill bg-danger py-2 px-3" style="margin-top: 18px; margin-left: 30px;">
+                0
+            </span>
+            <div id="search-books-result" class="row row-cols-1 row-cols-md-3 g-4 p-2 mt-1 border border-2 border-secondary min-vh-100">
+                
+            </div>
+        </section>
+        <!-- End Search All Books Result  -->
+
+    </main>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+</html>
