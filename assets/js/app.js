@@ -24,13 +24,10 @@ const searchBook = async () => {
         const res = await fetch(url);
         const books = await res.json(); 
         displaySearchBooks(books);
-        //  OLD PROCESS OF GET DATA
-        // fetch(url)
-        // .then(res => res.json())
-        // .then(foods => displaySearchBooks(books.docs))
     }
     else {
         // alert('Search Box Is Empty, Please Enter Your Book Name!!!');
+        showSpinner() 
         errorMsg.innerHTML =`<div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong>Search Field Is Empty!</strong> Please, Type Your Favorite Book Name & Try Again To Search...
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -47,11 +44,12 @@ const displaySearchBooks = books => {
     const searchTotalBooks  = document.getElementById('search-total-books');
     const displaySearchBooksContainer = document.getElementById('search-books-result');
     const coverImage = document.getElementById('cover-image');
-      // Error Handing
+
     // displaySearchBooksContainer.innerHTML = ''; // Old Process
     displaySearchBooksContainer.textContent = '';
     
     if(books.numFound !== 0) {
+        showSpinner();
         errorMsg.innerHTML = "";
         // SearchBooksSectionContainer.appendChild(h2)
         searchTotalBooks.innerText = books.numFound
@@ -80,10 +78,12 @@ const displaySearchBooks = books => {
             `;
             
             displaySearchBooksContainer.appendChild(searchBookDiv);
-            hideSpinner();
+            
         })
+        hideSpinner();
     }
     else {
+        // Error Handing
         errorMsg.innerHTML =`<div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong>No Result Found!</strong> Please Try Again...
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
