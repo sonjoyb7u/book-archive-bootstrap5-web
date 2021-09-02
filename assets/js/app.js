@@ -19,7 +19,7 @@ const searchBook = async () => {
     if(searchText.length > 0) {
         showSpinner(); 
         searchField.value = '';
-        const url = `http://openlibrary.org/search.json?q=${searchText}`;
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
         // NEW PROCESS OF GET DATA
         const res = await fetch(url);
         const books = await res.json(); 
@@ -53,12 +53,13 @@ const displaySearchBooks = books => {
         errorMsg.innerHTML = "";
         // SearchBooksSectionContainer.appendChild(h2)
         searchTotalBooks.innerText = books.numFound
+
         books.docs.forEach (book => {
             // console.log(book);
             const searchBookDiv = document.createElement('div');
             searchBookDiv.classList.add('col-md-3');
-            searchBookDiv.innerHTML = `<div onclick="loadSingleBookImage('${book.cover_i}')" class="card bg-dark p-2 text-white bg-opacity-75bg-dark text-white bg-opacity-25">
-                    <a target="_blank" href="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg">
+            searchBookDiv.innerHTML = `<div class="card bg-dark p-2 text-white bg-opacity-75bg-dark text-white bg-opacity-25">
+                    <a target="_blank" href="${book.cover_i ? 'https://covers.openlibrary.org/b/id/' + book.cover_i + '-M.jpg' : 'assets/images/dummy2.png'}">
                         <img width="100" height="270" id="cover-image" height="270" src="${book.cover_i ? 'https://covers.openlibrary.org/b/id/' + book.cover_i + '-M.jpg' : 'assets/images/dummy2.png'}" class="img-responsive card-img-top cover-image" alt="${book.cover_i}-M">
                         <div class="card-body">
                     </a>
@@ -80,6 +81,7 @@ const displaySearchBooks = books => {
             displaySearchBooksContainer.appendChild(searchBookDiv);
             
         })
+
         hideSpinner();
     }
     else {
