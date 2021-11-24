@@ -47,8 +47,7 @@ const searchBook = async () => {
 
 // Set To Display All Searched Books Results ... ...
 const displaySearchBooks = books => {
-    // console.log(books.numFound);
-
+    // console.log(books);
     // displaySearchBooksContainer.innerHTML = ''; // Old Process
     displaySearchBooksContainer.textContent = '';
     
@@ -57,9 +56,8 @@ const displaySearchBooks = books => {
         errorMsg.innerHTML = "";
         // SearchBooksSectionContainer.appendChild(h2)
         searchTotalBooks.innerText = books.numFound
-
+        
         books.docs.forEach (book => {
-            // console.log(book);
             const searchBookDiv = document.createElement('div');
             searchBookDiv.classList.add('col-md-3');
             searchBookDiv.innerHTML = `<div class="card bg-dark p-2 text-white bg-opacity-75bg-dark text-white bg-opacity-25">
@@ -84,7 +82,7 @@ const displaySearchBooks = books => {
             
             displaySearchBooksContainer.appendChild(searchBookDiv);
             
-        })
+         })
 
         hideSpinner();
     }
